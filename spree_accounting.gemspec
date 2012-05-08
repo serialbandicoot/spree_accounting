@@ -3,16 +3,16 @@ Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'spree_accounting'
   s.version     = '1.0.0'
-  s.summary     = 'TODO: Add gem summary here'
-  s.description = 'TODO: Add (optional) gem description here'
+  s.summary     = 'Spree Accounting'
+  s.description = 'Gem will add accounting information to the Spree Amin section'
   s.required_ruby_version = '>= 1.8.7'
 
-  # s.author            = 'You'
-  # s.email             = 'you@example.com'
-  # s.homepage          = 'http://www.spreecommerce.com'
+  s.author            = 'Sam Treweek'
+  s.email             = 'samtreweek@gmail.com'
+  s.homepage          = 'http://www.lilyandmax.co.uk'
 
-  #s.files         = `git ls-files`.split("\n")
-  #s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
+  s.files         = `git ls-files`.split("\n")
+  s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_path = 'lib'
   s.requirements << 'none'
 
