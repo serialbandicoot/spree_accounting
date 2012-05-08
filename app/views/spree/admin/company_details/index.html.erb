@@ -1,0 +1,27 @@
+<h1>Listing admin_company_details</h1>
+
+<table class="index">
+  <tr>
+    <th>Company name</th>
+    <th>Company certificate</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_company_details.each do |admin_company_detail| %>
+  <tr>
+    <td><%= admin_company_detail.company_name %></td>
+    <td><%= admin_company_detail.company_certificate %></td>
+    <td><%= link_to_with_icon('edit', 'Edit', edit_admin_company_detail_path(admin_company_detail)) %></td>
+    <td><%= link_to 'Destroy', admin_company_detail, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<% unless @admin_company_details.size > 0 %>
+    <%= link_to 'New Company detail', new_admin_company_detail_path %>
+<% end %>
+
+

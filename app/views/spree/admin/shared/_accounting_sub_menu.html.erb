@@ -1,0 +1,7 @@
+<% if inside_accounts_tab? %>
+    <% content_for :sub_menu do %>
+    <ul id="sub_nav" data-hook="accounting_sub_nav">
+      <%= tab :company_details %>
+    </ul>
+  <% end %>
+<% end %>
