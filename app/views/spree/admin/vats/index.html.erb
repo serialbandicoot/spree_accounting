@@ -10,14 +10,12 @@
         <th>Vat value</th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
 
     <% @admin_vats.each do |admin_vat| %>
       <tr>
         <td><%= admin_vat.vat_name %></td>
         <td><%= admin_vat.vat_value %></td>
-        <td><%= link_to 'Show', admin_vat %></td>
         <td><%= link_to 'Edit', edit_admin_vat_path(admin_vat) %></td>
         <td><%= link_to 'Destroy', admin_vat, confirm: 'Are you sure?', method: :delete %></td>
       </tr>

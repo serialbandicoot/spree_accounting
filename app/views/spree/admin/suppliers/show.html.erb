@@ -52,7 +52,7 @@
 
 
 <% @admin_supplier = Admin::Supplier.find_by_id(@admin_supplier)%>
-<%= form_for([@admin_supplier.company_addresses.build]) do |f| %>
+<%= form_for([@admin_supplier.accounts_addresses.build]) do |f| %>
        <div class="field">
          <%= f.label :address1 %><br />
          <%= f.text_field :address1 %>

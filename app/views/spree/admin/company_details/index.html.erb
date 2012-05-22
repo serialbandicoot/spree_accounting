@@ -34,7 +34,7 @@
 
     <% @admin_company_details.each do |admin_company_detail| %>
         <% @admin_company_detail = Admin::CompanyDetail.find_by_id(admin_company_detail.id)%>
-        <% @admin_company_address = @admin_company_detail.company_addresses %>
+        <% @admin_company_address = @admin_company_detail.accounts_addresses %>
         <% unless @admin_company_address.empty? %>
           <table class="index">
               <tr>
@@ -50,12 +50,12 @@
                  <td><%= @admin_company_address.first.address2 %></td>
                  <td><%= @admin_company_address.first.county %></td>
                  <td><%= @admin_company_address.first.zipcode %></td>
-                 <td><%= link_to_with_icon('edit', 'Edit', edit_admin_company_address_path(@admin_company_address.first.id)) %></td>
-                 <td><%= link_to 'Destroy', admin_company_address_path(@admin_company_address.first.id), confirm: 'Are you sure?', method: :delete %></td>
+                 <td><%= link_to_with_icon('edit', 'Edit', edit_admin_accounts_address_path(@admin_company_address.first.id)) %></td>
+                 <td><%= link_to 'Destroy', admin_accounts_address_path(@admin_company_address.first.id), confirm: 'Are you sure?', method: :delete %></td>
               </tr>
           </table>
          <% else %>
-            <%= form_for([@admin_company_detail.company_addresses.build]) do |f| %>
+            <%= form_for([@admin_company_detail.accounts_addresses.build]) do |f| %>
                <div class="field">
                 <%= f.label :address1 %><br />
                 <%= f.text_field :address1 %>

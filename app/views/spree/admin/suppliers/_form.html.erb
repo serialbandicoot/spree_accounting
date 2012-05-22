@@ -30,7 +30,7 @@
     </tr>
     <tr>
       <td><%= f.label :preferred_payment_method %></td>
-      <td><%= f.collection_select(:payment_method_id, Admin::AccountsPaymentMethod.find(:all), :id, :payment_type, options ={:prompt => "-Select a Payment Method"}, :class =>"") %></td>
+      <td><%= f.collection_select(:accounts_payment_method_id, Admin::AccountsPaymentMethod.find(:all), :id, :payment_type, options ={:prompt => "-Select a Payment Method"}, :class =>"") %></td>
     </tr>
     <tr>
       <td><%= f.submit %></td>

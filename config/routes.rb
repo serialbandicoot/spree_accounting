@@ -7,7 +7,7 @@ Spree::Core::Engine.routes.draw do
     match "suppliers/new_social_media/:id" => "suppliers#new_social_media"
 
     resources :company_details
-    resources :company_addresses
+    resources :accounts_addresses
     resources :expense_categories
     resources :expense_types
     resources :vats

@@ -7,13 +7,11 @@
     <th>Supplier type</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 <% @admin_supplier_types.each do |admin_supplier_type| %>
   <tr>
     <td><%= admin_supplier_type.supplier_type %></td>
-    <td><%= link_to 'Show', admin_supplier_type %></td>
     <td><%= link_to 'Edit', edit_admin_supplier_type_path(admin_supplier_type) %></td>
     <td><%= link_to 'Destroy', admin_supplier_type, confirm: 'Are you sure?', method: :delete %></td>
   </tr>

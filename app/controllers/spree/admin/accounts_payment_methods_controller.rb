@@ -40,11 +40,11 @@ class Spree::Admin::AccountsPaymentMethodsController < Spree::Admin::BaseControl
   # POST /admin/payment_methods
   # POST /admin/payment_methods.json
   def create
-    @admin_payment_method = Admin::AccountsPaymentMethod.new(params[:admin_payment_method])
+    @admin_payment_method = Admin::AccountsPaymentMethod.new(params[:admin_accounts_payment_method])
 
     respond_to do |format|
       if @admin_payment_method.save
-        format.html { redirect_to @admin_payment_method, notice: 'Payment method was successfully created.' }
+        format.html { redirect_to admin_accounts_payment_methods_url }
         format.json { render json: @admin_payment_method, status: :created, location: @admin_payment_method }
       else
         format.html { render action: "new" }
@@ -59,8 +59,8 @@ class Spree::Admin::AccountsPaymentMethodsController < Spree::Admin::BaseControl
     @admin_payment_method = Admin::AccountsPaymentMethod.find(params[:id])
 
     respond_to do |format|
-      if @admin_payment_method.update_attributes(params[:admin_payment_method])
-        format.html { redirect_to @admin_payment_method, notice: 'Payment method was successfully updated.' }
+      if @admin_payment_method.update_attributes(params[:admin_accounts_payment_method])
+        format.html { redirect_to admin_accounts_payment_methods_url }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -76,7 +76,7 @@ class Spree::Admin::AccountsPaymentMethodsController < Spree::Admin::BaseControl
     @admin_payment_method.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_payment_methods_url }
+      format.html { redirect_to admin_accounts_payment_methods_url }
       format.json { head :ok }
     end
   end

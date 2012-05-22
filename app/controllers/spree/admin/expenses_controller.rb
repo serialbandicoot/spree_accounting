@@ -44,7 +44,7 @@ class Spree::Admin::ExpensesController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_expense.save
-        format.html { redirect_to @admin_expense, notice: 'Expense was successfully created.' }
+        format.html { redirect_to admin_expenses_url }
         format.json { render json: @admin_expense, status: :created, location: @admin_expense }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Spree::Admin::ExpensesController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_expense.update_attributes(params[:admin_expense])
-        format.html { redirect_to @admin_expense, notice: 'Expense was successfully updated.' }
+        format.html { redirect_to admin_expenses_url }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

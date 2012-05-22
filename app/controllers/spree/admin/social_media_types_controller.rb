@@ -44,7 +44,7 @@ class Spree::Admin::SocialMediaTypesController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_social_media_type.save
-        format.html { redirect_to @admin_social_media_type, notice: 'Social media type was successfully created.' }
+        format.html { redirect_to admin_social_media_types_url }
         format.json { render json: @admin_social_media_type, status: :created, location: @admin_social_media_type }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Spree::Admin::SocialMediaTypesController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_social_media_type.update_attributes(params[:admin_social_media_type])
-        format.html { redirect_to @admin_social_media_type, notice: 'Social media type was successfully updated.' }
+        format.html { redirect_to admin_social_media_types_url }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

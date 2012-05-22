@@ -1,10 +1,11 @@
-<h1>Listing admin_social_media</h1>
+<%= render 'spree/admin/shared/accounts_accordion' %>
+
+<div id="acc_content">
 
 <table>
   <tr>
     <th>Social media types</th>
     <th>Social media value</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -13,7 +14,6 @@
   <tr>
     <td><%= Admin::SocialMediaType.find_by_id(admin_social_medium.social_media_types_id).social_media_type %></td>
     <td><%= admin_social_medium.social_media_value %></td>
-    <td><%= link_to 'Show', admin_social_medium %></td>
     <td><%= link_to 'Edit', edit_admin_social_medium_path(admin_social_medium) %></td>
     <td><%= link_to 'Destroy', admin_social_medium, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
@@ -23,3 +23,5 @@
 <br />
 
 <%= link_to 'New Social medium', new_admin_social_medium_path %>
+
+</div>

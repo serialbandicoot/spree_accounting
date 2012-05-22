@@ -7,13 +7,11 @@
         <th>Contact type</th>
         <th></th>
         <th></th>
-        <th></th>
       </tr>
 
     <% @admin_contact_types.each do |admin_contact_type| %>
       <tr>
         <td><%= admin_contact_type.contact_type %></td>
-        <td><%= link_to 'Show', admin_contact_type %></td>
         <td><%= link_to 'Edit', edit_admin_contact_type_path(admin_contact_type) %></td>
         <td><%= link_to 'Destroy', admin_contact_type, confirm: 'Are you sure?', method: :delete %></td>
       </tr>

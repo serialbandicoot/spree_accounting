@@ -44,7 +44,7 @@ class Spree::Admin::ContactTypesController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_contact_type.save
-        format.html { redirect_to @admin_contact_type, notice: 'Contact type was successfully created.' }
+        format.html { redirect_to admin_contact_types_url }
         format.json { render json: @admin_contact_type, status: :created, location: @admin_contact_type }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Spree::Admin::ContactTypesController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_contact_type.update_attributes(params[:admin_contact_type])
-        format.html { redirect_to @admin_contact_type, notice: 'Contact type was successfully updated.' }
+        format.html { redirect_to admin_contact_types_url }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

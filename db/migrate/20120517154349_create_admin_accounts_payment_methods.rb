@@ -1,6 +1,6 @@
-class CreateAdminPaymentMethods < ActiveRecord::Migration
+class CreateAdminAccountsPaymentMethods < ActiveRecord::Migration
   def change
-    create_table :admin_payment_methods do |t|
+    create_table :admin_accounts_payment_methods do |t|
       t.string :payment_type
 
       t.timestamps

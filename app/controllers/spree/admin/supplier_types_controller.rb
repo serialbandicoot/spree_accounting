@@ -46,7 +46,7 @@ class Spree::Admin::SupplierTypesController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_supplier_type.save
-        format.html { redirect_to @admin_supplier_type, notice: 'Supplier type was successfully created.' }
+        format.html { redirect_to admin_supplier_types_url }
         format.json { render json: @admin_supplier_type, status: :created, location: @admin_supplier_type }
       else
         format.html { render action: "new" }
@@ -62,7 +62,7 @@ class Spree::Admin::SupplierTypesController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_supplier_type.update_attributes(params[:admin_supplier_type])
-        format.html { redirect_to @admin_supplier_type, notice: 'Supplier type was successfully updated.' }
+        format.html { redirect_to admin_supplier_types_url }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

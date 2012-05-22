@@ -26,7 +26,7 @@
                 <th><%= admin_supplier.supplier_name %></th>
                 <th><%= admin_supplier.supplier_contact_name %></th>
                 <th><%= Admin::SupplierType.find_by_id(admin_supplier.supplier_type_id).supplier_type %></th>
-                <th><%= Admin::AccountsPaymentMethod.find_by_id(admin_supplier.payment_method_id).payment_type %></th>
+                <th><%= Admin::AccountsPaymentMethod.find_by_id(admin_supplier.accounts_payment_method_id).payment_type %></th>
                 <% first_contact = @admin_supplier.contact_detail.first %>
                 <% if first_contact %>
                     <th><%= Admin::ContactType.find_by_id(first_contact.contact_type_id).contact_type %>: <%= first_contact.contact_value %> ↓</th>
@@ -66,18 +66,18 @@
                           </div>
                          </div>
                     <% end %>
-                    <% @admin_addresses = @admin_supplier.company_addresses %>
-                    <% @admin_addresses.each do |company_address| %>
+                    <% @admin_addresses = @admin_supplier.accounts_addresses %>
+                    <% @admin_addresses.each do |accounts_address| %>
                         <div id="address">
                           <div id="address_value">
-                           <%=  Admin::CompanyAddress.find_by_id(company_address.id).address1 %>,
-                           <%=  Admin::CompanyAddress.find_by_id(company_address.id).address2 %>,
-                           <%=  Admin::CompanyAddress.find_by_id(company_address.id).county %>,
-                           <%=  Admin::CompanyAddress.find_by_id(company_address.id).zipcode %>
+                           <%=  Admin::AccountsAddress.find_by_id(accounts_address.id).address1 %>,
+                           <%=  Admin::AccountsAddress.find_by_id(accounts_address.id).address2 %>,
+                           <%=  Admin::AccountsAddress.find_by_id(accounts_address.id).county %>,
+                           <%=  Admin::AccountsAddress.find_by_id(accounts_address.id).zipcode %>
                          </div>
                          <div id="address_links">
-                           <%= link_to 'Edit', edit_admin_company_address_path(company_address.id) %> |
-                           <%= link_to 'Delete', admin_company_address_path(company_address.id), confirm: 'Are you sure?', method: :delete %>
+                           <%= link_to 'Edit', edit_admin_accounts_address_path(accounts_address.id) %> |
+                           <%= link_to 'Delete', admin_accounts_address_path(accounts_address.id), confirm: 'Are you sure?', method: :delete %>
                          </div>
                         </div>
                     <% end %>

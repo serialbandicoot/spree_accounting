@@ -14,7 +14,7 @@ class Spree::Admin::CompanyDetailsController < Spree::Admin::BaseController
   # GET /admin/company_details/1.json
   def show
     @admin_company_detail = Admin::CompanyDetail.find(params[:id])
-    @admin_company_address = @admin_company_detail.admin_company_addresses
+    @admin_company_address = @admin_company_detail.admin_accounts_addresses
 
     respond_to do |format|
       format.html # show.html.erb

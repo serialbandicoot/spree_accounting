@@ -1,3 +1,3 @@
 class Admin::CompanyDetail < ActiveRecord::Base
-  has_many :company_addresses, :dependent => :destroy
+  has_many :accounts_addresses, :dependent => :destroy
 end

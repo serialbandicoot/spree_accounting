@@ -44,7 +44,7 @@ class Spree::Admin::VatsController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_vat.save
-        format.html { redirect_to @admin_vat, notice: 'Vat was successfully created.' }
+        format.html { redirect_to admin_vats_url }
         format.json { render json: @admin_vat, status: :created, location: @admin_vat }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Spree::Admin::VatsController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_vat.update_attributes(params[:admin_vat])
-        format.html { redirect_to @admin_vat, notice: 'Vat was successfully updated.' }
+        format.html { redirect_to admin_vats_url }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
