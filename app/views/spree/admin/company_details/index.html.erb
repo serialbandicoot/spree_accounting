@@ -1,6 +1,8 @@
-<h1>Listing admin_company_details</h1>
+<%= render 'spree/admin/shared/accounts_accordion' %>
 
-<table class="index">
+<div id="acc_content">
+
+   <table class="index">
   <tr>
     <th>Company name</th>
     <th>Company certificate</th>
@@ -21,7 +23,73 @@
 <br />
 
 <% unless @admin_company_details.size > 0 %>
-    <%= link_to 'New Company detail', new_admin_company_detail_path %>
+    <%= link_to 'Add Company Details', new_admin_company_detail_path %>
 <% end %>
+
+<% if @admin_company_details.empty? %>
+    <br /><br />
+    Note: You need to add Company Details before adding the Registered Company Address
+<% else %>
+    <h4>Registered Company Address</h4>
+
+    <% @admin_company_details.each do |admin_company_detail| %>
+        <% @admin_company_detail = Admin::CompanyDetail.find_by_id(admin_company_detail.id)%>
+        <% @admin_company_address = @admin_company_detail.company_addresses %>
+        <% unless @admin_company_address.empty? %>
+          <table class="index">
+              <tr>
+                <th>Address 1</th>
+                <th>Address 2</th>
+                <th>County</th>
+                <th>Postcode</th>
+                <th></th>
+                <th></th>
+              </tr>
+              <tr>
+                 <td><%= @admin_company_address.first.address1 %></td>
+                 <td><%= @admin_company_address.first.address2 %></td>
+                 <td><%= @admin_company_address.first.county %></td>
+                 <td><%= @admin_company_address.first.zipcode %></td>
+                 <td><%= link_to_with_icon('edit', 'Edit', edit_admin_company_address_path(@admin_company_address.first.id)) %></td>
+                 <td><%= link_to 'Destroy', admin_company_address_path(@admin_company_address.first.id), confirm: 'Are you sure?', method: :delete %></td>
+              </tr>
+          </table>
+         <% else %>
+            <%= form_for([@admin_company_detail.company_addresses.build]) do |f| %>
+               <div class="field">
+                <%= f.label :address1 %><br />
+                <%= f.text_field :address1 %>
+              </div>
+              <div class="field">
+                <%= f.label :address2 %><br />
+                <%= f.text_field :address2 %>
+              </div>
+              <div class="field">
+                <%= f.label :county %><br />
+                <%= f.text_field :county %>
+              </div>
+              <div class="field">
+                <%= f.label :zipcode %><br />
+                <%= f.text_field :zipcode %>
+              </div>
+              <div>
+                <%= f.hidden_field :company_detail_id %>
+              </div>
+              <div class="actions">
+                <%= f.submit %>
+              </div>
+            <% end %>
+         <% end %>
+    <% end %>
+<% end %>
+</div>
+
+
+
+
+
+
+
+
 
 

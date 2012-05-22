@@ -1,0 +1,42 @@
+<%= form_for(@admin_supplier) do |f| %>
+  <% if @admin_supplier.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_supplier.errors.count, "error") %> prohibited this admin_supplier from being saved:</h2>
+
+      <ul>
+      <% @admin_supplier.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <table>
+    <tr>
+      <th width="150"></th>
+      <th></th>
+    </tr>
+    <tr>
+      <td><%= f.label :supplier_name %></td>
+      <td><%= f.text_field :supplier_name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :supplier_contact_name %></td>
+      <td><%= f.text_field :supplier_contact_name %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :supplier_type %></td>
+      <td><%= f.collection_select(:supplier_type_id, Admin::SupplierType.find(:all), :id, :supplier_type, options ={:prompt => "-Select a Supplier Type"}, :class =>"") %></td>
+    </tr>
+    <tr>
+      <td><%= f.label :preferred_payment_method %></td>
+      <td><%= f.collection_select(:payment_method_id, Admin::AccountsPaymentMethod.find(:all), :id, :payment_type, options ={:prompt => "-Select a Payment Method"}, :class =>"") %></td>
+    </tr>
+    <tr>
+      <td><%= f.submit %></td>
+      <td></td>
+    </tr>
+
+  </table>
+
+<% end %>

@@ -1,0 +1,30 @@
+<%= render 'spree/admin/shared/accounts_accordion' %>
+
+<div id="acc_content">
+
+    <h1>Listing admin_vats</h1>
+
+    <table class="index">
+      <tr>
+        <th>Vat name</th>
+        <th>Vat value</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @admin_vats.each do |admin_vat| %>
+      <tr>
+        <td><%= admin_vat.vat_name %></td>
+        <td><%= admin_vat.vat_value %></td>
+        <td><%= link_to 'Show', admin_vat %></td>
+        <td><%= link_to 'Edit', edit_admin_vat_path(admin_vat) %></td>
+        <td><%= link_to 'Destroy', admin_vat, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+
+    <br />
+
+    <%= link_to 'New Vat', new_admin_vat_path %>
+</div>

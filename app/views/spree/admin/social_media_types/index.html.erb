@@ -1,0 +1,26 @@
+<%= render 'spree/admin/shared/accounts_accordion' %>
+
+<div id="acc_content">
+
+<table class="index">
+  <tr>
+    <th>Social media type</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_social_media_types.each do |admin_social_media_type| %>
+  <tr>
+    <td><%= admin_social_media_type.social_media_type %></td>
+    <td><%= link_to 'Show', admin_social_media_type %></td>
+    <td><%= link_to 'Edit', edit_admin_social_media_type_path(admin_social_media_type) %></td>
+    <td><%= link_to 'Destroy', admin_social_media_type, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Social media type', new_admin_social_media_type_path %>
+</div>

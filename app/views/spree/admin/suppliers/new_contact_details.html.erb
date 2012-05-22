@@ -1,0 +1,17 @@
+<%= form_for([@admin_supplier.contact_detail.build]) do |f| %>
+       <div class="field">
+         <%= f.label :contact_type %><br />
+         <%= f.collection_select(:contact_type_id, Admin::ContactType.find(:all), :id, :contact_type, options ={:prompt => "-Select a Contact Type"}, :class =>"") %>
+      </div>
+      <div class="field">
+        <%= f.label :contact_value %><br />
+        <%= f.text_field :contact_value %>
+      </div>
+
+      <%= f.hidden_field :supplier_id %>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+
+<% end %>

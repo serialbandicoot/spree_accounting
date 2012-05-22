@@ -14,6 +14,7 @@ class Spree::Admin::CompanyDetailsController < Spree::Admin::BaseController
   # GET /admin/company_details/1.json
   def show
     @admin_company_detail = Admin::CompanyDetail.find(params[:id])
+    @admin_company_address = @admin_company_detail.admin_company_addresses
 
     respond_to do |format|
       format.html # show.html.erb
@@ -44,7 +45,8 @@ class Spree::Admin::CompanyDetailsController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_company_detail.save
-        format.html { redirect_to @admin_company_detail, :notice => 'Company detail was successfully created.' }
+        #format.html { redirect_to @admin_company_detail, :notice => 'Company detail was successfully created.' }
+        format.html { redirect_to :action => :index, :notice => 'Company detail was successfully created.' }
         format.json { render :json => @admin_company_detail, :status => :created, :location => @admin_company_detail }
       else
         format.html { render :action => "new" }

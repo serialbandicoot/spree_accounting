@@ -1,0 +1,36 @@
+<%= form_for(@admin_company_address) do |f| %>
+  <% if @admin_company_address.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_company_address.errors.count, "error") %> prohibited this admin_company_address from being saved:</h2>
+
+      <ul>
+      <% @admin_company_address.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :address1 %><br />
+    <%= f.text_field :address1 %>
+  </div>
+  <div class="field">
+    <%= f.label :address2 %><br />
+    <%= f.text_field :address2 %>
+  </div>
+  <div class="field">
+    <%= f.label :county %><br />
+    <%= f.text_field :county %>
+  </div>
+  <div class="field">
+    <%= f.label :zipcode %><br />
+    <%= f.text_field :zipcode %>
+  </div>
+  <div>
+    <%= f.hidden_field :company_detail_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

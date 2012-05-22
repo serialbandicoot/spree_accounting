@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Social media types:</b>
+  <td><%= Admin::SocialMediaType.find_by_id(@admin_social_medium.social_media_types_id).social_media_type %></td>
+</p>
+
+<p>
+  <b>Social media value:</b>
+  <%= @admin_social_medium.social_media_value %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_social_medium_path(@admin_social_medium) %> |
+<%= link_to 'Back', admin_social_media_path %>

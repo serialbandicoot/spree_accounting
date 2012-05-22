@@ -1,0 +1,16 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Contact type:</b>
+  <%= Admin::ContactType.find_by_id(@admin_contact_detail.contact_type_id).contact_type %>
+
+</p>
+
+<p>
+  <b>Contact value:</b>
+  <%= @admin_contact_detail.contact_value %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_contact_detail_path(@admin_contact_detail) %> |
+<%= link_to 'Back', admin_contact_details_path %>

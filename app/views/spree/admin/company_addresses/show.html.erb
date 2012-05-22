@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Address1:</b>
+  <%= @admin_company_address.address1 %>
+</p>
+
+<p>
+  <b>Address2:</b>
+  <%= @admin_company_address.address2 %>
+</p>
+
+<p>
+  <b>County:</b>
+  <%= @admin_company_address.county %>
+</p>
+
+<p>
+  <b>Zipcode:</b>
+  <%= @admin_company_address.zipcode %>
+</p>
+
+<p>
+  <b>Admin company details:</b>
+  <%= @admin_company_address.company_detail_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_company_address_path(@admin_company_address) %> |
+<%= link_to 'Back', admin_company_addresses_path %>

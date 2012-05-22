@@ -1,0 +1,54 @@
+<%= form_for(@admin_expense) do |f| %>
+  <% if @admin_expense.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_expense.errors.count, "error") %> prohibited this admin_expense from being saved:</h2>
+
+      <ul>
+      <% @admin_expense.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <table>
+    <tr>
+        <th></th>
+        <th></th>
+    </tr>
+    <tr>
+      <td width="150"><%= f.label :expense_categories %></td>
+      <td><%= f.collection_select(:expense_categories_id, Admin::ExpenseCategory.find(:all), :id, :expense_category, options ={:prompt => "-Select an Expense"}, :class =>"") %></td>
+    </tr>
+    <tr>
+      <td width="150"><%= f.label :expense_type %></td>
+      <td><%= f.collection_select(:expense_type_id, Admin::ExpenseType.find(:all), :id, :expense_type, options ={:prompt => "-Select a Type"}, :class =>"") %></td>
+    </tr>
+    <tr>
+      <td width="150"><%= f.label :expense_date %></td>
+      <td><%= f.date_select :expense_date %></td>
+    </tr>
+    <tr>
+      <td width="150"><%= f.label :expense_total_value %></td>
+      <td><%= f.text_field :expense_total_value %></td>
+    </tr>
+    <tr>
+      <td width="150"><%= f.label :vat_value %></td>
+      <td><%= f.collection_select(:vat_value_id, Admin::Vat.find(:all), :id, :vat_value, options ={:prompt => "-Select applicable VAT"}, :class =>"") %></td>
+    </tr>
+    <tr>
+      <td width="150"><%= f.label :expense_description %></td>
+      <td><%= f.text_field :expense_description %></td>
+    </tr>
+    <tr>
+      <td width="150"><%= f.label :expense_receipt %></td>
+      <td><%= f.text_field :expense_receipt %></td>
+    </tr>
+    <tr>
+      <td width="150"><%= f.submit %></td>
+      <td></td>
+    </tr>
+  </table>
+
+<% end %>

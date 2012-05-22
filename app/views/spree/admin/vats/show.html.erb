@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Vat name:</b>
+  <%= @admin_vat.vat_name %>
+</p>
+
+<p>
+  <b>Vat value:</b>
+  <%= @admin_vat.vat_value %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_vat_path(@admin_vat) %> |
+<%= link_to 'Back', admin_vats_path %>

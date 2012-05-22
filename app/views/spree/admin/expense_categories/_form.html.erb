@@ -1,0 +1,21 @@
+<%= form_for(@admin_expense_category) do |f| %>
+  <% if @admin_expense_category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_expense_category.errors.count, "error") %> prohibited this admin_expense_category from being saved:</h2>
+
+      <ul>
+      <% @admin_expense_category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :expense_category %><br />
+    <%= f.text_field :expense_category %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

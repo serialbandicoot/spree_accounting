@@ -1,0 +1,94 @@
+<%= render 'spree/admin/shared/accounts_accordion' %>
+
+<p></p>
+
+<div id="acc_content">
+
+<div id="new_supplier">
+  <%= button_link_to 'New Supplier', new_admin_supplier_path %>
+  <%= paginate @admin_suppliers %>
+</div>
+
+<div id="container">
+    <table class="accounts_table">
+        <tbody>
+        <% @admin_suppliers.each do |admin_supplier| %>
+        <% @admin_supplier = Admin::Supplier.find_by_id(admin_supplier.id) %>
+            <tr bgcolor="#9ac1c9">
+                <th width="15%">Supplier name</th>
+                <th width="15%">Supplier contact name</th>
+                <th width="10%">Supplier type</th>
+                <th width="11%">Payment Preferred</th>
+                <th width="28%">Supplier Information</th>
+                <th width="22%"><%= link_to 'Show', admin_supplier %> : <%= link_to 'Edit', edit_admin_supplier_path(admin_supplier) %> : <%= link_to 'Delete', admin_supplier, confirm: 'Are you sure?', method: :delete %></th>
+            </tr>
+            <tr class="heading show">
+                <th><%= admin_supplier.supplier_name %></th>
+                <th><%= admin_supplier.supplier_contact_name %></th>
+                <th><%= Admin::SupplierType.find_by_id(admin_supplier.supplier_type_id).supplier_type %></th>
+                <th><%= Admin::AccountsPaymentMethod.find_by_id(admin_supplier.payment_method_id).payment_type %></th>
+                <% first_contact = @admin_supplier.contact_detail.first %>
+                <% if first_contact %>
+                    <th><%= Admin::ContactType.find_by_id(first_contact.contact_type_id).contact_type %>: <%= first_contact.contact_value %> ↓</th>
+                <% else %>
+                    <th></th>
+                <% end %>
+                <th>New <%= link_to 'contact', "/admin/suppliers/new_contact_details/#{admin_supplier.id}" %> | <%= link_to 'address', "/admin/suppliers/new_address/#{admin_supplier.id}" %> | <%= link_to 'social media', "/admin/suppliers/new_social_media/#{admin_supplier.id}" %></th>
+
+            </tr>
+            <tr class="data">
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td>
+                    <% @admin_contact_details = @admin_supplier.contact_detail.order(:contact_type_id) %>
+                    <% @admin_contact_details.each do |contact_details| %>
+                        <div id="contact_details">
+                          <div id="contact_details_value">
+                              <%= Admin::ContactType.find_by_id(contact_details.contact_type_id).contact_type %>: <%= contact_details.contact_value %>
+                          </div>
+                          <div id="contact_details_links">
+                              <%= link_to 'Edit', edit_admin_contact_detail_path(contact_details.id) %> |
+                              <%= link_to 'Delete', admin_contact_detail_path(contact_details.id), confirm: 'Are you sure?', method: :delete %>
+                          </div>
+                        </div>
+                    <% end %>
+                    <% @admin_social_medium = @admin_supplier.social_mediums %>
+                    <% @admin_social_medium.each do |social_mediums| %>
+                        <div id="social_media">
+                          <div id="social_media_value">
+                           <%= Admin::SocialMediaType.find_by_id(social_mediums.social_media_types_id).social_media_type %>: <%= social_mediums.social_media_value %>
+                          </div>
+                          <div id="social_media_links">
+                           <%= link_to 'Edit', edit_admin_social_medium_path(social_mediums.id) %> |
+                           <%= link_to 'Delete', admin_social_medium_path(social_mediums.id), confirm: 'Are you sure?', method: :delete %>
+                          </div>
+                         </div>
+                    <% end %>
+                    <% @admin_addresses = @admin_supplier.company_addresses %>
+                    <% @admin_addresses.each do |company_address| %>
+                        <div id="address">
+                          <div id="address_value">
+                           <%=  Admin::CompanyAddress.find_by_id(company_address.id).address1 %>,
+                           <%=  Admin::CompanyAddress.find_by_id(company_address.id).address2 %>,
+                           <%=  Admin::CompanyAddress.find_by_id(company_address.id).county %>,
+                           <%=  Admin::CompanyAddress.find_by_id(company_address.id).zipcode %>
+                         </div>
+                         <div id="address_links">
+                           <%= link_to 'Edit', edit_admin_company_address_path(company_address.id) %> |
+                           <%= link_to 'Delete', admin_company_address_path(company_address.id), confirm: 'Are you sure?', method: :delete %>
+                         </div>
+                        </div>
+                    <% end %>
+                </td>
+            </tr>
+        <% end %>
+        </tbody>
+    </table>
+</div>
+
+</div>
+
+
+​

@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Expense categories:</b>
+  <%= Admin::ExpenseCategory.find_by_id(@admin_expense.expense_categories_id).expense_category %>
+</p>
+
+<p>
+  <b>Expense type:</b>
+   <%= Admin::ExpenseType.find_by_id(@admin_expense.expense_type_id).expense_type %>
+</p>
+
+<p>
+  <b>Expense date:</b>
+  <%= @admin_expense.expense_date %>
+</p>
+
+<p>
+  <b>Expense total value:</b>
+  <%= @admin_expense.expense_total_value %>
+</p>
+
+<p>
+  <b>Vat value:</b>
+  <%= Admin::Vat.find_by_id(@admin_expense.vat_value_id).vat_value %>
+</p>
+
+<p>
+  <b>Expense description:</b>
+  <%= @admin_expense.expense_description %>
+</p>
+
+<p>
+  <b>Expense receipt:</b>
+  <%= @admin_expense.expense_receipt %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_expense_path(@admin_expense) %> |
+<%= link_to 'Back', admin_expenses_path %>

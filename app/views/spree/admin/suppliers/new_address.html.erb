@@ -1,0 +1,26 @@
+<%= form_for([@admin_supplier.company_addresses.build]) do |f| %>
+       <div class="field">
+         <%= f.label :address1 %><br />
+         <%= f.text_field :address1 %>
+      </div>
+
+      <div class="field">
+        <%= f.label :address2 %><br />
+        <%= f.text_field :address2 %>
+      </div>
+      <div class="field">
+        <%= f.label :county %><br />
+        <%= f.text_field :county %>
+      </div>
+      <div class="field">
+        <%= f.label :zipcode %><br />
+        <%= f.text_field :zipcode %>
+      </div>
+
+      <%= f.hidden_field :supplier_id %>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+
+<% end %>

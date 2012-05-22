@@ -1,0 +1,84 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Supplier name:</b>
+  <%= @admin_supplier.supplier_name %>
+</p>
+
+<p>
+  <b>Supplier contact name:</b>
+  <%= @admin_supplier.supplier_contact_name %>
+</p>
+
+<% @admin_supplier = Admin::Supplier.find_by_id(@admin_supplier)%>
+<%= form_for([@admin_supplier.contact_detail.build]) do |f| %>
+       <div class="field">
+         <%= f.label :contact_type %><br />
+         <%= f.collection_select(:contact_type_id, Admin::ContactType.find(:all), :id, :contact_type, options ={:prompt => "-Select a Contact Type"}, :class =>"") %>
+      </div>
+      <div class="field">
+        <%= f.label :contact_value %><br />
+        <%= f.text_field :contact_value %>
+      </div>
+
+      <%= f.hidden_field :supplier_id %>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+
+<% end %>
+
+<br /><br />
+
+<% @admin_supplier = Admin::Supplier.find_by_id(@admin_supplier)%>
+<%= form_for([@admin_supplier.social_mediums.build]) do |f| %>
+       <div class="field">
+         <%= f.label :social_media_type %><br />
+         <%= f.collection_select(:social_media_types_id, Admin::SocialMediaType.find(:all), :id, :social_media_type, options ={:prompt => "-Select a Social Media"}, :class =>"") %>
+      </div>
+      <div class="field">
+        <%= f.label :social_media_value %><br />
+        <%= f.text_field :social_media_value %>
+      </div>
+
+      <%= f.hidden_field :supplier_id %>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+
+<% end %>
+
+
+<% @admin_supplier = Admin::Supplier.find_by_id(@admin_supplier)%>
+<%= form_for([@admin_supplier.company_addresses.build]) do |f| %>
+       <div class="field">
+         <%= f.label :address1 %><br />
+         <%= f.text_field :address1 %>
+      </div>
+
+      <div class="field">
+        <%= f.label :address2 %><br />
+        <%= f.text_field :address2 %>
+      </div>
+      <div class="field">
+        <%= f.label :county %><br />
+        <%= f.text_field :county %>
+      </div>
+      <div class="field">
+        <%= f.label :zipcode %><br />
+        <%= f.text_field :zipcode %>
+      </div>
+
+      <%= f.hidden_field :supplier_id %>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+
+<% end %>
+
+
+<%= link_to 'Edit', edit_admin_supplier_path(@admin_supplier) %> |
+<%= link_to 'Back', admin_suppliers_path %>

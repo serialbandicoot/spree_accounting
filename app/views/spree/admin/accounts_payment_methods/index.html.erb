@@ -1,0 +1,26 @@
+<%= render 'spree/admin/shared/accounts_accordion' %>
+
+    <div id="acc_content">
+
+    <table>
+      <tr>
+        <th>Payment type</th>
+        <th></th>
+        <th></th>
+        <th></th>
+      </tr>
+
+    <% @admin_payment_methods.each do |admin_payment_method| %>
+      <tr>
+        <td><%= admin_payment_method.payment_type %></td>
+        <td><%= link_to 'Show', admin_payment_method %></td>
+        <td><%= link_to 'Edit', edit_admin_payment_method_path(admin_payment_method) %></td>
+        <td><%= link_to 'Destroy', admin_payment_method, confirm: 'Are you sure?', method: :delete %></td>
+      </tr>
+    <% end %>
+    </table>
+
+    <br />
+
+    <%= link_to 'New Payment method', new_admin_payment_method_path %>
+</div>

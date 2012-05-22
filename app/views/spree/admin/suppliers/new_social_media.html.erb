@@ -1,0 +1,17 @@
+<%= form_for([@admin_supplier.social_mediums.build]) do |f| %>
+       <div class="field">
+         <%= f.label :social_media_type %><br />
+         <%= f.collection_select(:social_media_types_id, Admin::SocialMediaType.find(:all), :id, :social_media_type, options ={:prompt => "-Select a Social Media"}, :class =>"") %>
+      </div>
+      <div class="field">
+        <%= f.label :social_media_value %><br />
+        <%= f.text_field :social_media_value %>
+      </div>
+
+      <%= f.hidden_field :supplier_id %>
+
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+
+<% end %>

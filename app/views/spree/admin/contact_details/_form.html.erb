@@ -1,0 +1,32 @@
+<%= form_for(@admin_contact_detail) do |f| %>
+  <% if @admin_contact_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_contact_detail.errors.count, "error") %> prohibited this admin_contact_detail from being saved:</h2>
+
+      <ul>
+      <% @admin_contact_detail.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contact_type %><br />
+    <%= f.collection_select(:contact_type_id, Admin::ContactType.find(:all), :id, :contact_type, options ={:prompt => "-Select a Contact Type"}, :class =>"") %>
+
+  </div>
+  <div class="field">
+    <%= f.label :contact_value %><br />
+    <%= f.text_field :contact_value %>
+  </div>
+
+   <div class="field">
+    <%= f.label :supplier_id %><br />
+    <%= f.text_field :supplier_id %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

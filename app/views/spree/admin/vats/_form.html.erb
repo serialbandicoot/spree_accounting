@@ -1,0 +1,25 @@
+<%= form_for(@admin_vat) do |f| %>
+  <% if @admin_vat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_vat.errors.count, "error") %> prohibited this admin_vat from being saved:</h2>
+
+      <ul>
+      <% @admin_vat.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :vat_name %><br />
+    <%= f.text_field :vat_name %>
+  </div>
+  <div class="field">
+    <%= f.label :vat_value %><br />
+    <%= f.number_field :vat_value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<%= form_for(@admin_social_medium) do |f| %>
+  <% if @admin_social_medium.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_social_medium.errors.count, "error") %> prohibited this admin_social_medium from being saved:</h2>
+
+      <ul>
+      <% @admin_social_medium.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :social_media_types %><br />
+    <%= f.collection_select(:social_media_types_id, Admin::SocialMediaType.find(:all), :id, :social_media_type, options ={:prompt => "-Select a Social Medium"}, :class =>"") %>
+  </div>
+  <div class="field">
+    <%= f.label :social_media_value %><br />
+    <%= f.text_field :social_media_value %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

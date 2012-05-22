@@ -1,0 +1,27 @@
+<h1>Listing admin_contact_details</h1>
+
+<table>
+  <tr>
+    <th>Contact type</th>
+    <th>Contact value</th>
+    <th>Supplier ID</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_contact_details.each do |admin_contact_detail| %>
+  <tr>
+    <td><%= Admin::ContactType.find_by_id(admin_contact_detail.contact_type_id).contact_type %></td>
+    <td><%= admin_contact_detail.contact_value %></td>
+    <td><%= admin_contact_detail.supplier_id %></td>
+    <td><%= link_to 'Show', admin_contact_detail %></td>
+    <td><%= link_to 'Edit', edit_admin_contact_detail_path(admin_contact_detail) %></td>
+    <td><%= link_to 'Destroy', admin_contact_detail, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Contact detail', new_admin_contact_detail_path %>

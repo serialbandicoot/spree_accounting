@@ -1,5 +1,8 @@
 source 'http://rubygems.org'
 
+gem 'rails', '3.1.4'
+gem 'kaminari'
+
 group :test do
   gem 'ffaker'
 end
