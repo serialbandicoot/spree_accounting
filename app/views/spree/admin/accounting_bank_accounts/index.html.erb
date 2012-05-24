@@ -20,7 +20,7 @@
     <td><%= admin_accounting_bank_account.sort_code %></td>
     <td><%= admin_accounting_bank_account.account_number %></td>
     <td><%= Admin::BankingInstitution.find_by_id(admin_accounting_bank_account.banking_institutions_id).institution_name %></td>
-    <td><%= link_to 'Transactions', "/admin/accounting_bank_accounts/transaction_summary/#{admin_accounting_bank_account.id}" %><td>
+    <td><%= link_to 'Transactions', "/parties/admin/accounting_bank_accounts/transaction_summary/#{admin_accounting_bank_account.id}" %><td>
     <td><%= link_to 'Edit', edit_admin_accounting_bank_account_path(admin_accounting_bank_account) %></td>
     <td><%= link_to 'Destroy', admin_accounting_bank_account, confirm: 'This will delete all transactions', method: :delete %></td>
   </tr>

@@ -44,7 +44,7 @@ class Spree::Admin::BankingTransactionTypesController < Spree::Admin::BaseContro
 
     respond_to do |format|
       if @admin_banking_transaction_type.save
-        format.html { redirect_to @admin_banking_transaction_type, notice: 'Banking transaction type was successfully created.' }
+        format.html { redirect_to admin_banking_transaction_types_url }
         format.json { render json: @admin_banking_transaction_type, status: :created, location: @admin_banking_transaction_type }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Spree::Admin::BankingTransactionTypesController < Spree::Admin::BaseContro
 
     respond_to do |format|
       if @admin_banking_transaction_type.update_attributes(params[:admin_banking_transaction_type])
-        format.html { redirect_to @admin_banking_transaction_type, notice: 'Banking transaction type was successfully updated.' }
+        format.html { redirect_to admin_banking_transaction_types_url }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

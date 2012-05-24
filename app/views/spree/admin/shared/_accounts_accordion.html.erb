@@ -29,7 +29,7 @@
 
          <% @admin_accounting_bank_accounts.each do |accounts| %>
             <ul>
-              <li><%= link_to accounts.account_name, "/admin/accounting_bank_accounts/transaction_summary/#{accounts.id}" %></li>
+              <li><%= link_to accounts.account_name, "/parties/admin/accounting_bank_accounts/transaction_summary/#{accounts.id}" %></li>
             </ul>
          <% end %>
 

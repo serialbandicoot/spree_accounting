@@ -44,7 +44,7 @@ class Spree::Admin::AccountsAddressesController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_accounts_addresses.save
-        format.html { redirect_to :back }
+        format.html { redirect_to admin_suppliers_url }
         format.json { render json: @admin_accounts_addresses, status: :created, location: @admin_company_address }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Spree::Admin::AccountsAddressesController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_accounts_addresses.update_attributes(params[:admin_accounts_address])
-        format.html { redirect_to admin_company_details_url, notice: 'Company address was successfully updated.' }
+        format.html { redirect_to admin_suppliers_url }
         #format.html { redirect_to :controller => "company_details", :action => :index }
         format.json { head :ok }
       else
@@ -77,7 +77,7 @@ class Spree::Admin::AccountsAddressesController < Spree::Admin::BaseController
     @admin_accounts_addresses.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_company_details_url }
+      format.html { redirect_to admin_suppliers_url }
       format.json { head :ok }
     end
   end

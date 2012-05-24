@@ -44,7 +44,7 @@ class Spree::Admin::ContactDetailsController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_contact_detail.save
-        format.html { redirect_to @admin_contact_detail, notice: 'Contact detail was successfully created.' }
+        format.html { redirect_to admin_suppliers_url }
         format.json { render json: @admin_contact_detail, status: :created, location: @admin_contact_detail }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Spree::Admin::ContactDetailsController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_contact_detail.update_attributes(params[:admin_contact_detail])
-        format.html { redirect_to @admin_contact_detail, notice: 'Contact detail was successfully updated.' }
+        format.html { redirect_to admin_suppliers_url }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
@@ -76,7 +76,7 @@ class Spree::Admin::ContactDetailsController < Spree::Admin::BaseController
     @admin_contact_detail.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_contact_details_url }
+      format.html { redirect_to admin_suppliers_url }
       format.json { head :ok }
     end
   end

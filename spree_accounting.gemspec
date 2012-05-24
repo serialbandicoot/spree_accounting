@@ -4,7 +4,7 @@ Gem::Specification.new do |s|
   s.name        = 'spree_accounting'
   s.version     = '1.0.0'
   s.summary     = 'Spree Accounting'
-  s.description = 'Gem will add accounting information to the Spree Amin section'
+  s.description = 'Gem will add accounting information to the Spree Admin section'
   s.required_ruby_version = '>= 1.8.7'
 
   s.author            = 'Sam Treweek'
@@ -16,7 +16,7 @@ Gem::Specification.new do |s|
   s.require_path = 'lib'
   s.requirements << 'none'
 
-  s.add_dependency 'spree_core', '~> 1.0.0'
+  #s.add_dependency 'spree_core', '~> 1.0.0'
   #
   s.add_development_dependency 'capybara', '1.0.1'
   s.add_development_dependency 'factory_girl'

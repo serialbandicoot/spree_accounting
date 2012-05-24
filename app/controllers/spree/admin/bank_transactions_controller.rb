@@ -44,7 +44,7 @@ class Spree::Admin::BankTransactionsController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_bank_transaction.save
-        format.html { redirect_to "/admin/accounting_bank_accounts/transaction_summary/#{@admin_bank_transaction.accounting_bank_account_id}" }
+        format.html { redirect_to "/parties/admin/accounting_bank_accounts/transaction_summary/#{@admin_bank_transaction.accounting_bank_account_id}" }
         format.json { render json: @admin_bank_transaction, status: :created, location: @admin_bank_transaction }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Spree::Admin::BankTransactionsController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_bank_transaction.update_attributes(params[:admin_bank_transaction])
-        format.html { redirect_to "/admin/accounting_bank_accounts/transaction_summary/#{@admin_bank_transaction.accounting_bank_account_id}" }
+        format.html { redirect_to "/parties/admin/accounting_bank_accounts/transaction_summary/#{@admin_bank_transaction.accounting_bank_account_id}" }
         format.json { head :ok }
       else
         format.html { render action: "edit" }

@@ -44,7 +44,7 @@ class Spree::Admin::SocialMediaController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_social_medium.save
-        format.html { redirect_to admin_social_media_url }
+        format.html { redirect_to admin_suppliers_url }
         format.json { render json: @admin_social_medium, status: :created, location: @admin_social_medium }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class Spree::Admin::SocialMediaController < Spree::Admin::BaseController
 
     respond_to do |format|
       if @admin_social_medium.update_attributes(params[:admin_social_medium])
-        format.html { redirect_to admin_social_media_url }
+        format.html { redirect_to admin_suppliers_url }
         format.json { head :ok }
       else
         format.html { render action: "edit" }
