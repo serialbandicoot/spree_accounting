@@ -1,0 +1,33 @@
+<%= render 'spree/admin/shared/accounts_accordion' %>
+
+<div id="acc_content">
+
+<table>
+  <tr>
+    <th>Date recorded</th>
+    <th>Mileage</th>
+    <th>Travel description</th>
+    <th>Vehicle type</th>
+    <th>Reclaim rate</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_mileages.each do |admin_mileage| %>
+  <tr>
+    <td><%= admin_mileage.date_recorded %></td>
+    <td><%= admin_mileage.mileage %></td>
+    <td><%= admin_mileage.travel_description %></td>
+    <td><%= Admin::VehicleType.find_by_id(admin_mileage.vehicle_type_id).vehicle_type %></td>
+    <td><%= Admin::ReclaimRate.find_by_id(admin_mileage.reclaim_rate_id).reclaim_rate %></td>
+    <td><%= link_to 'Edit', edit_admin_mileage_path(admin_mileage) %></td>
+    <td><%= link_to 'Destroy', admin_mileage, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Mileage', new_admin_mileage_path %>
+
+</div>

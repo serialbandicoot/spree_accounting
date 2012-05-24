@@ -1,0 +1,30 @@
+<%= render 'spree/admin/shared/accounts_accordion' %>
+
+<div id="acc_content">
+
+
+<%= form_for([@admin_accounting_bank_account.bank_transactions.build]) do |f| %>
+  <%= f.hidden_field :accounting_bank_account_id %>
+  <div class="field">
+    <%= f.label :transaction_date %><br />
+    <%= f.date_select :transaction_date %>
+  </div>
+  <div class="field">
+    <%= f.label :transaction_type %><br />
+    <td><%= f.collection_select(:banking_transaction_type_id, Admin::BankingTransactionType.find(:all), :id, :banking_transaction_type, options ={:prompt => "-Select a Transaction Type"}, :class =>"") %></td>
+  </div>
+  <div class="field">
+    <%= f.label :transaction_description %><br />
+    <%= f.text_field :transaction_description %>
+  </div>
+  <div class="field">
+    <%= f.label :transaction_amount %><br />
+    <%= f.text_field :transaction_amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+<% end %>
+
+</div>

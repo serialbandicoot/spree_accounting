@@ -1,0 +1,32 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Accounting bank accounts:</b>
+  <%= @admin_bank_transaction.accounting_bank_account_id %>
+
+</p>
+
+<p>
+  <b>Transaction date:</b>
+  <%= @admin_bank_transaction.transaction_date %>
+</p>
+
+<p>
+  <b>Transaction type:</b>
+  <%= @admin_bank_transaction.banking_transaction_type_id %>
+  <%= Admin::BankingTransactionType.find_by_id(@admin_bank_transaction.banking_transaction_type_id).banking_transaction_type %>
+</p>
+
+<p>
+  <b>Transaction description:</b>
+  <%= @admin_bank_transaction.transaction_description %>
+</p>
+
+<p>
+  <b>Transaction amount:</b>
+  <%= @admin_bank_transaction.transaction_amount %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_bank_transaction_path(@admin_bank_transaction) %> |
+<%= link_to 'Back', admin_bank_transactions_path %>

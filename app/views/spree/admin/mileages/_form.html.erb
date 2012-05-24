@@ -1,0 +1,38 @@
+<%= form_for(@admin_mileage) do |f| %>
+  <% if @admin_mileage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_mileage.errors.count, "error") %> prohibited this admin_mileage from being saved:</h2>
+
+      <ul>
+      <% @admin_mileage.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :date_recorded %><br />
+    <%= f.date_select :date_recorded %>
+  </div>
+  <div class="field">
+    <%= f.label :mileage %><br />
+    <%= f.number_field :mileage %>
+  </div>
+  <div class="field">
+    <%= f.label :travel_description %><br />
+    <%= f.text_field :travel_description %>
+  </div>
+  <div class="field">
+    <%= f.label :vehicle_type %><br />
+    <%= f.collection_select(:vehicle_type_id, Admin::VehicleType.find(:all), :id, :vehicle_type, options ={:prompt => "-Select Vehicle"}, :class =>"") %>
+
+  </div>
+  <div class="field">
+    <%= f.label :reclaim_rate %><br />
+    <%= f.collection_select(:reclaim_rate_id, Admin::ReclaimRate.find(:all), :id, :reclaim_rate, options ={:prompt => "-Select Rate"}, :class =>"") %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

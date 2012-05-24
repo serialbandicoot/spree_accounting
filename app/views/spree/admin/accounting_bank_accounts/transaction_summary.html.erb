@@ -1,0 +1,48 @@
+<%= render 'spree/admin/shared/accounts_accordion' %>
+
+<div id="acc_content">
+
+<h3>Bank Account: <%= Admin::AccountingBankAccount.find_by_id(@admin_accounting_bank_account.id).account_name %></h3>
+
+<table align="right">
+  <tr>
+    <th>Transaction date</th>
+    <th>Transaction description</th>
+    <th>Transaction Credit</th>
+    <th>Transaction Debit</th>
+    <th>Current Balance: <%= sprintf( "£%.02f" , @total ) %></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_bank_transactions.each_with_index do |admin_bank_transaction, index| %>
+  <tr>
+    <td><%= admin_bank_transaction.transaction_date %></td>
+    <td><%= admin_bank_transaction.transaction_description %></td>
+
+    <% if Admin::BankingTransactionType.find_by_id(admin_bank_transaction.banking_transaction_type_id).banking_transaction_type == "Credit" %>
+        <td><%= admin_bank_transaction.transaction_amount %></td>
+        <td></td>
+    <% else %>
+        <td></td>
+        <td><%= admin_bank_transaction.transaction_amount %></td>
+    <% end %>
+    <td><%= sprintf( "%.02f" , @transaction_balance[index] ) %></td>
+    <td><%= link_to 'Edit', edit_admin_bank_transaction_path(admin_bank_transaction) %></td>
+    <td><%= link_to 'Destroy', admin_bank_transaction, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+  <tr></tr>
+  <tr>
+    <td><%= link_to 'New Transaction', "/admin/accounting_bank_accounts/new_transaction/#{@admin_accounting_bank_account.id}" %></td>
+    <td><%= link_to "Export Report", "/admin/accounting_bank_accounts/transaction_summary/#{@admin_accounting_bank_account.id}.csv" %></td>
+    </tr>
+</table>
+
+<br />
+
+
+</div>
+
+
+

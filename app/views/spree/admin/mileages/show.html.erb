@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Date recorded:</b>
+  <%= @admin_mileage.date_recorded %>
+</p>
+
+<p>
+  <b>Mileage:</b>
+  <%= @admin_mileage.mileage %>
+</p>
+
+<p>
+  <b>Travel description:</b>
+  <%= @admin_mileage.travel_description %>
+</p>
+
+<p>
+  <b>Vehicle type:</b>
+  <%= @admin_mileage.vehicle_type %>
+</p>
+
+<p>
+  <b>Reclaim rate:</b>
+  <%= @admin_mileage.reclaim_rate %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_mileage_path(@admin_mileage) %> |
+<%= link_to 'Back', admin_mileages_path %>

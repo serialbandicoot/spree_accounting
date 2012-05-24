@@ -1,0 +1,21 @@
+<%= form_for(@admin_reclaim_rate) do |f| %>
+  <% if @admin_reclaim_rate.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_reclaim_rate.errors.count, "error") %> prohibited this admin_reclaim_rate from being saved:</h2>
+
+      <ul>
+      <% @admin_reclaim_rate.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :reclaim_rate %><br />
+    <%= f.text_field :reclaim_rate %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

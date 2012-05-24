@@ -1,0 +1,24 @@
+<%= render 'spree/admin/shared/accounts_accordion' %>
+
+<div id="acc_content">
+
+<table>
+  <tr>
+    <th>Vehicle type</th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_vehicle_types.each do |admin_vehicle_type| %>
+  <tr>
+    <td><%= admin_vehicle_type.vehicle_type %></td>
+    <td><%= link_to 'Edit', edit_admin_vehicle_type_path(admin_vehicle_type) %></td>
+    <td><%= link_to 'Destroy', admin_vehicle_type, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Vehicle type', new_admin_vehicle_type_path %>
+</div>

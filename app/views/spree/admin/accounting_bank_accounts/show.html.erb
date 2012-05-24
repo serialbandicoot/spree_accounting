@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Sort code:</b>
+  <%= @admin_accounting_bank_account.account_name %>
+</p>
+
+<p>
+  <b>Sort code:</b>
+  <%= @admin_accounting_bank_account.sort_code %>
+</p>
+
+<p>
+  <b>Account number:</b>
+  <%= @admin_accounting_bank_account.account_number %>
+</p>
+
+<p>
+  <b>Banking institutions:</b>
+  <%=  %>
+  <%= Admin::BankingInstitution.find_by_id(@admin_accounting_bank_account.banking_institutions_id).institution_name %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_accounting_bank_account_path(@admin_accounting_bank_account) %> |
+<%= link_to 'Back', admin_accounting_bank_accounts_path %>

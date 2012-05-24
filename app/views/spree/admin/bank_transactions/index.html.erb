@@ -1,0 +1,31 @@
+<h1>Listing admin_bank_transactions</h1>
+
+<table>
+  <tr>
+    <th>Accounting bank accounts</th>
+    <th>Transaction date</th>
+    <th>Transaction type</th>
+    <th>Transaction description</th>
+    <th>Transaction amount</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_bank_transactions.each do |admin_bank_transaction| %>
+  <tr>
+    <td><%= Admin::AccountingBankAccount.find_by_id(admin_bank_transaction.accounting_bank_account_id).account_name %></td>
+    <td><%= admin_bank_transaction.transaction_date %></td>
+    <td><%= admin_bank_transaction.transaction_type %></td>
+    <td><%= admin_bank_transaction.transaction_description %></td>
+    <td><%= admin_bank_transaction.transaction_amount %></td>
+    <td><%= link_to 'Show', admin_bank_transaction %></td>
+    <td><%= link_to 'Edit', edit_admin_bank_transaction_path(admin_bank_transaction) %></td>
+    <td><%= link_to 'Destroy', admin_bank_transaction, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bank transaction', new_admin_bank_transaction_path %>

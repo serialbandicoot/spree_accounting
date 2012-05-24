@@ -1,0 +1,17 @@
+<% headers = ["Transaction Date", "Transaction Description", "Credit", "Debit", "Balance"] %>
+<%= CSV.generate_line headers %>
+<% @admin_bank_transactions.each_with_index do |admin_bank_transaction, index| %>
+<% row = [admin_bank_transaction.transaction_date,
+           admin_bank_transaction.transaction_description] %>
+    <% if Admin::BankingTransactionType.find_by_id(admin_bank_transaction.banking_transaction_type_id).banking_transaction_type == "Credit" %>
+        <% row << admin_bank_transaction.transaction_amount %>
+        <% row << nil %>
+    <% else %>
+        <% row << nil  %>
+        <% row << admin_bank_transaction.transaction_amount %>
+    <% end %>
+<% row << sprintf( "%.02f" , @transaction_balance[index] )%>
+<%= CSV.generate_line row, {:row_sep => nil} %>
+<% end %>
+
+

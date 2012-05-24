@@ -1,3 +1,5 @@
+<% @admin_accounting_bank_accounts = Admin::AccountingBankAccount.all %>
+
 <div id="slider">
   <div class="slider_header" id="one-header">Vendors</div>
   <div class="content" id="one-content">
@@ -23,7 +25,16 @@
   <div class="content" id="three-content">
     <div class="text">
        <ul>
-        <li>Banks Accounts</li>
+        <li><%= link_to 'Banks Accounts', admin_accounting_bank_accounts_path %></li>
+
+         <% @admin_accounting_bank_accounts.each do |accounts| %>
+            <ul>
+              <li><%= link_to accounts.account_name, "/admin/accounting_bank_accounts/transaction_summary/#{accounts.id}" %></li>
+            </ul>
+         <% end %>
+
+        <li><%= link_to 'Transaction Type', admin_banking_transaction_types_path %></li>
+        <li><%= link_to 'Banking Institution', admin_banking_institutions_path %></li>
       </ul>
     </div>
   </div>
@@ -58,7 +69,9 @@
   <div class="content" id="seven-content">
     <div class="text">
        <ul>
-        <li>Travel</li>
+         <li><%= link_to 'Mileage', admin_mileages_path %></li>
+         <li><%= link_to 'Reclaim Rates', admin_reclaim_rates_path %></li>
+         <li><%= link_to 'Vehicle Types', admin_vehicle_types_path %></li>
         <li><%= link_to 'Purchases', admin_expenses_path %></li>
       </ul>
     </div>

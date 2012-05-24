@@ -1,0 +1,32 @@
+<%= form_for(@admin_accounting_bank_account) do |f| %>
+  <% if @admin_accounting_bank_account.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_accounting_bank_account.errors.count, "error") %> prohibited this admin_accounting_bank_account from being saved:</h2>
+
+      <ul>
+      <% @admin_accounting_bank_account.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+   <div class="field">
+    <%= f.label :banking_institutions %><br />
+    <td><%= f.collection_select(:banking_institutions_id, Admin::BankingInstitution.find(:all), :id, :institution_name, options ={:prompt => "-Select a Bank"}, :class =>"") %></td>
+  </div>
+  <div class="field">
+    <%= f.label :account_name %><br />
+    <%= f.text_field :account_name %>
+  </div>
+  <div class="field">
+    <%= f.label :sort_code %><br />
+    <%= f.text_field :sort_code %>
+  </div>
+  <div class="field">
+    <%= f.label :account_number %><br />
+    <%= f.text_field :account_number %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
