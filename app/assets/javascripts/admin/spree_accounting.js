@@ -2,20 +2,20 @@
 
 $(document).ready(function() {
 
-  $('a[href^="http://"], a[href^="https://"]').attr({
-        target: "_blank"
-    });
-    $('tr.data, tr.btt').show().find('td').wrapInner('<div />');
-    $('tr.data, tr.btt').find('td > div').hide();
-    $('table tr.heading').click(function(){
-        var data = $(this).next('tr');
-        var btt = data.next('tr');
-        data.find('td > div').slideToggle('slow');
-        btt.find('td > div').slideToggle('slow');
-        $(this).toggleClass('show');
-    });
+//  $('a[href^="http://"], a[href^="https://"]').attr({
+//        target: "_blank"
+//    });
+//    $('tr.data, tr.btt').show().find('td').wrapInner('<div />');
+//    $('tr.data, tr.btt').find('td > div').hide();
+//    $('table tr.heading').click(function(){
+//        var data = $(this).next('tr');
+//        var btt = data.next('tr');
+//        data.find('td > div').slideToggle('slow');
+//        btt.find('td > div').slideToggle('slow');
+//        $(this).toggleClass('show');
+//    });
 
-    slider.init('slider',1);
+//    slider.init('slider',1);
 
 });
 
